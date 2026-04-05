@@ -16,7 +16,7 @@ export default function GallerySection() {
     : gallery.works.slice(0, gallery.initialDisplay);
 
   return (
-    <section id="gallery" className="section-padding bg-[#0d0d12]">
+    <section id="gallery" className="section-padding" style={{ backgroundColor: "var(--color-surface, #F8FAFF)" }}>
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionHeading
           title={gallery.title}
@@ -25,7 +25,8 @@ export default function GallerySection() {
         />
 
         <motion.p
-          className="text-center text-text-secondary max-w-[600px] mx-auto mb-12 text-sm"
+          className="text-center max-w-[600px] mx-auto mb-12 text-sm"
+          style={{ color: "var(--color-text-muted, #8E8EA0)" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -35,11 +36,11 @@ export default function GallerySection() {
         </motion.p>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {displayed.map((work, i) => (
             <motion.div
               key={work.src}
-              className="relative aspect-square cursor-pointer overflow-hidden group"
+              className="relative aspect-square cursor-pointer overflow-hidden group rounded-xl"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -53,7 +54,7 @@ export default function GallerySection() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-end justify-start p-4">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end justify-start p-4">
                 <span className="text-white text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
                   {work.title}
                 </span>
@@ -67,7 +68,11 @@ export default function GallerySection() {
           <div className="text-center mt-8">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-6 py-2 border border-primary/30 text-primary font-mono text-xs tracking-widest uppercase hover:bg-primary/10 transition-all cursor-pointer"
+              className="px-6 py-2 rounded-full text-xs tracking-widest uppercase transition-all cursor-pointer"
+              style={{
+                border: "1px solid var(--color-accent, #7EC8E3)",
+                color: "var(--color-accent, #7EC8E3)",
+              }}
             >
               {showAll ? "Show Less" : `Show All ${gallery.works.length} Works`}
             </button>
@@ -79,7 +84,7 @@ export default function GallerySection() {
       <AnimatePresence>
         {selected !== null && (
           <motion.div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -97,9 +102,9 @@ export default function GallerySection() {
                 alt={gallery.works[selected].title}
                 width={1200}
                 height={1200}
-                className="object-contain max-h-[85vh] w-auto"
+                className="object-contain max-h-[85vh] w-auto rounded-lg"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
                 <p className="text-white font-mono text-sm">
                   {gallery.works[selected].title}
                 </p>
@@ -107,7 +112,7 @@ export default function GallerySection() {
               {/* Nav */}
               {selected > 0 && (
                 <button
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/50 text-white hover:bg-primary/30 transition-colors cursor-pointer"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/20 text-white hover:bg-white/30 rounded-full transition-colors cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelected(selected - 1);
@@ -118,7 +123,7 @@ export default function GallerySection() {
               )}
               {selected < gallery.works.length - 1 && (
                 <button
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/50 text-white hover:bg-primary/30 transition-colors cursor-pointer"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/20 text-white hover:bg-white/30 rounded-full transition-colors cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelected(selected + 1);
