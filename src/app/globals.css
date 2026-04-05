@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: var(--site-bg, #0a0a0f);
-  --color-surface: rgba(15, 15, 25, 0.8);
-  --color-primary: var(--site-primary, #00e5ff);
-  --color-accent: var(--site-accent, #d4a853);
-  --color-text-primary: #e5e5e5;
-  --color-text-secondary: #999999;
-  --color-text-muted: #777777;
-  --color-border: rgba(0, 229, 255, 0.2);
-  --color-surface-elevated: rgba(20, 20, 30, 0.8);
+  --color-background: var(--site-bg, #ffffff);
+  --color-surface: #f5f7ff;
+  --color-primary: var(--site-primary, #7EC8E3);
+  --color-accent: var(--site-accent, #C4A8E0);
+  --color-text-primary: #3D3D4E;
+  --color-text-secondary: #9B9BB0;
+  --color-text-muted: #9B9BB0;
+  --color-border: rgba(196, 168, 224, 0.2);
+  --color-surface-elevated: rgba(245, 247, 255, 0.9);
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
@@ -27,12 +27,12 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-background); }
-::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0, 229, 255, 0.5); }
+::-webkit-scrollbar-track { background: #f5f7ff; }
+::-webkit-scrollbar-thumb { background: rgba(126, 200, 227, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(126, 200, 227, 0.5); }
 
 /* Selection */
-::selection { background: rgba(0, 229, 255, 0.3); color: #fff; }
+::selection { background: rgba(126, 200, 227, 0.25); color: #3D3D4E; }
 
 html { scroll-behavior: smooth; }
 
@@ -43,24 +43,25 @@ html { scroll-behavior: smooth; }
 /* Decorative line */
 .deco-line {
   width: 60px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, #7EC8E3, #C4A8E0);
+  border-radius: 1px;
 }
 
-/* Glow */
+/* Glow — soft pastel version */
 .glow-text {
-  text-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 0 40px rgba(0, 229, 255, 0.2);
+  text-shadow: 0 0 20px rgba(126, 200, 227, 0.3), 0 0 40px rgba(196, 168, 224, 0.15);
 }
 
-/* Glass card */
+/* Glass card — light pastel */
 .glass-card {
-  background: rgba(15, 15, 25, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 229, 255, 0.1);
-  border-radius: 12px;
+  border: 1px solid rgba(196, 168, 224, 0.15);
+  border-radius: 16px;
 }
 
-/* Animated border */
+/* Animated border — pastel gradient */
 .glow-border {
   position: relative;
   border-radius: 16px;
@@ -72,7 +73,7 @@ html { scroll-behavior: smooth; }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.3), rgba(139, 92, 246, 0.2), rgba(0, 229, 255, 0.1), rgba(212, 168, 83, 0.2), rgba(0, 229, 255, 0.3));
+  background: linear-gradient(135deg, rgba(126, 200, 227, 0.3), rgba(196, 168, 224, 0.2), rgba(126, 200, 227, 0.1), rgba(196, 168, 224, 0.2), rgba(126, 200, 227, 0.3));
   background-size: 300% 300%;
   animation: borderGlow 6s ease-in-out infinite;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -86,13 +87,13 @@ html { scroll-behavior: smooth; }
   50% { background-position: 100% 50%; }
 }
 
-/* Shimmer text */
+/* Shimmer text — pastel */
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
 }
 .text-shimmer {
-  background: linear-gradient(90deg, rgba(0, 229, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%, rgba(0, 229, 255, 0.8) 100%);
+  background: linear-gradient(90deg, rgba(126, 200, 227, 0.8) 0%, rgba(196, 168, 224, 0.8) 50%, rgba(126, 200, 227, 0.8) 100%);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -109,15 +110,15 @@ html { scroll-behavior: smooth; }
 /* Section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(0, 229, 255, 0.2) 20%, rgba(0, 229, 255, 0.4) 50%, rgba(0, 229, 255, 0.2) 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(126, 200, 227, 0.2) 20%, rgba(196, 168, 224, 0.3) 50%, rgba(126, 200, 227, 0.2) 80%, transparent 100%);
 }
 
-/* Mesh gradient */
+/* Mesh gradient — pastel */
 .mesh-gradient {
   background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 229, 255, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 30% at 50% 80%, rgba(212, 168, 83, 0.04) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(126, 200, 227, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(196, 168, 224, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 30% at 50% 80%, rgba(126, 200, 227, 0.04) 0%, transparent 70%);
 }
 
 /* Reduced motion */
