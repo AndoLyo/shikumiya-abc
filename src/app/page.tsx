@@ -12,16 +12,16 @@ export default function InkWashPage() {
     <div
       className="ink-wash-template"
       style={{
-        "--color-bg": "#F5F0E8",
-        "--color-surface": "#FEFCF7",
-        "--color-text": "#2C2C2C",
-        "--color-text-muted": "#8B8578",
-        "--color-accent": "#C73E3A",
-        "--color-accent-secondary": "#3D6B5E",
-        "--color-border": "#D5CBBB",
+        "--color-bg": "#FFFFFF",
+        "--color-surface": "#F5F8FD",
+        "--color-text": "#4A4A60",
+        "--color-text-muted": "#9DA0B8",
+        "--color-accent": "#8DC8E8",
+        "--color-accent-secondary": "#C4B5E0",
+        "--color-border": "#E6E0F2",
         backgroundColor: "var(--color-bg)",
         color: "var(--color-text)",
-        fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Noto Serif JP', Georgia, serif",
+        fontFamily: "'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif",
         minHeight: "100vh",
       } as React.CSSProperties}
     >

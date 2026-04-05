@@ -7,45 +7,59 @@ import Image from "next/image";
 const works = [
   {
     id: "01",
-    title: "墨の庭",
-    titleEn: "Sumi Garden",
-    category: "水墨画",
-    src: "/portfolio/work_01.webp",
+    title: "作品 1",
+    titleEn: "Work 01",
+    category: "AIアート",
+    src: "/images/work_03.webp",
   },
   {
     id: "02",
-    title: "静水面",
-    titleEn: "Still Water",
-    category: "風景",
-    src: "/portfolio/work_03.webp",
+    title: "作品 2",
+    titleEn: "Work 02",
+    category: "AIアート",
+    src: "/images/work_04.webp",
   },
   {
     id: "03",
-    title: "竹の声",
-    titleEn: "Voice of Bamboo",
-    category: "自然",
-    src: "/portfolio/work_06.webp",
+    title: "作品 3",
+    titleEn: "Work 03",
+    category: "AIアート",
+    src: "/images/work_05.webp",
   },
   {
     id: "04",
-    title: "朱の月",
-    titleEn: "Vermillion Moon",
-    category: "抽象",
-    src: "/portfolio/work_09.webp",
+    title: "作品 4",
+    titleEn: "Work 04",
+    category: "AIアート",
+    src: "/images/work_06.webp",
   },
   {
     id: "05",
-    title: "霧の峰",
-    titleEn: "Misty Peak",
-    category: "山水",
-    src: "/portfolio/work_12.webp",
+    title: "作品 5",
+    titleEn: "Work 05",
+    category: "AIアート",
+    src: "/images/work_07.webp",
   },
   {
     id: "06",
-    title: "花びら雨",
-    titleEn: "Petal Rain",
-    category: "花鳥",
-    src: "/portfolio/work_15.webp",
+    title: "作品 6",
+    titleEn: "Work 06",
+    category: "AIアート",
+    src: "/images/work_08.webp",
+  },
+  {
+    id: "07",
+    title: "作品 7",
+    titleEn: "Work 07",
+    category: "AIアート",
+    src: "/images/work_09.webp",
+  },
+  {
+    id: "08",
+    title: "作品 8",
+    titleEn: "Work 08",
+    category: "AIアート",
+    src: "/images/work_09.webp",
   },
 ];
 
@@ -227,9 +241,7 @@ export default function WorksSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          墨の濃淡と余白が織りなす、静寂の世界。それぞれの作品に込められた
-          <br className="hidden md:block" />
-          息遣いを感じてください。
+          AI画像生成で描いた作品たちです。
         </motion.p>
       </div>
 

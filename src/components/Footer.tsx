@@ -45,13 +45,13 @@ export default function Footer() {
               className="text-sm font-semibold tracking-[0.1em]"
               style={{ color: "var(--color-text)" }}
             >
-              SUMI・WORKS
+              Lyo
             </p>
             <p
               className="text-[10px] tracking-[0.2em] mt-0.5"
               style={{ color: "var(--color-text-muted)" }}
             >
-              墨絵アート ポートフォリオ
+              AI Art Portfolio
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function Footer() {
           className="text-[11px] tracking-[0.1em]"
           style={{ color: "var(--color-text-muted)" }}
         >
-          &copy; {year} Sumi Works. All rights reserved.
+          &copy; {year} Lyo. All rights reserved.
         </p>
       </div>
     </footer>

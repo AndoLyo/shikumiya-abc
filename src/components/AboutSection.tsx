@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Skills as hanko (判子) seal stamp style
 const skills = [
-  { label: "水墨画", en: "Sumi-e" },
-  { label: "水彩", en: "Watercolor" },
-  { label: "AIアート", en: "AI Art" },
-  { label: "デジタル", en: "Digital" },
-  { label: "ポスター", en: "Poster" },
-  { label: "装飾", en: "Ornamental" },
+  { label: "AI画像", en: "AI Art" },
+  { label: "生成AI", en: "Generative" },
 ];
 
 // Ink brush circle frame SVG — hanko / seal style for photo
@@ -122,22 +119,13 @@ export default function AboutSection() {
                   backgroundColor: "var(--color-border)",
                 }}
               >
-                {/* Photo placeholder — replace with Image */}
-                <div
-                  className="w-full h-full flex items-center justify-center"
-                  style={{
-                    background: "linear-gradient(145deg, #e8dfd0 0%, #c9b99a 60%, #a89270 100%)",
-                  }}
-                >
-                  <span
-                    className="text-sm tracking-[0.1em] text-center px-4"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    あなたの
-                    <br />
-                    写真
-                  </span>
-                </div>
+                <Image
+                  src="/images/about.webp"
+                  alt="Lyo"
+                  fill
+                  className="object-cover"
+                  sizes="320px"
+                />
               </div>
 
               {/* Vermillion seal stamp decoration */}
@@ -189,26 +177,16 @@ export default function AboutSection() {
               はじめまして、
               <br />
               <span style={{ color: "var(--color-accent-secondary)" }}>
-                山田 蒼
+                Lyo
               </span>
               です。
             </h2>
 
             <p
-              className="text-sm leading-loose mb-5"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              東京を拠点に活動する墨彩画家・デジタルアーティストです。
-              伝統的な水墨画の技法とAI画像生成を融合させ、
-              古代と未来が交わる独自の作品世界を追求しています。
-            </p>
-
-            <p
               className="text-sm leading-loose mb-10"
               style={{ color: "var(--color-text-muted)" }}
             >
-              余白の美しさと、墨の偶然性を大切にしながら、
-              見る人の心に静寂をもたらす作品を届けたいと思っています。
+              AI画像生成初めて約3年経ったけど、全然うまくいかない
             </p>
 
             {/* Divider brush stroke */}

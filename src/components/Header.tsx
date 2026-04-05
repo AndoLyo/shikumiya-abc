@@ -50,8 +50,8 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         backgroundColor: scrolled
-          ? "rgba(245, 240, 232, 0.96)"
-          : "rgba(245, 240, 232, 0.0)",
+          ? "rgba(255, 255, 255, 0.96)"
+          : "rgba(255, 255, 255, 0.0)",
         backdropFilter: scrolled ? "blur(8px)" : "none",
       }}
     >
@@ -61,28 +61,13 @@ export default function Header() {
           className="flex items-center gap-4 flex-1"
           style={{ color: "var(--color-text)" }}
         >
-          {/* Vertical Japanese text (decorative) */}
-          <span
-            className="hidden sm:block text-xs tracking-[0.25em] select-none opacity-70"
-            style={{
-              writingMode: "vertical-rl",
-              fontFamily: "inherit",
-              letterSpacing: "0.3em",
-              color: "var(--color-text-muted)",
-              height: "52px",
-            }}
-          >
-            墨絵
-          </span>
           {/* Site name */}
           <a
             href="#"
             className="text-base sm:text-lg font-semibold tracking-[0.12em] transition-opacity hover:opacity-70"
             style={{ color: "var(--color-text)" }}
           >
-            SUMI
-            <span style={{ color: "var(--color-accent)" }}>・</span>
-            WORKS
+            Lyo
           </a>
         </div>
 

@@ -70,15 +70,9 @@ function SealStamp() {
 const socialLinks = [
   {
     label: "X (Twitter)",
-    href: "#",
-    handle: "@sumi_works",
+    href: "https://x.com/tohkaai?s=21&t=X2NTXj7ncxDYhkSWUJ_dig",
+    handle: "@tohkaai",
     glyph: "𝕏",
-  },
-  {
-    label: "Instagram",
-    href: "#",
-    handle: "@sumi.works",
-    glyph: "IG",
   },
 ];
 
@@ -136,7 +130,7 @@ export default function ContactSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <a
-            href="mailto:hello@sumi-works.jp"
+            href="mailto:ryoya112@outlook.com"
             className="group inline-flex items-center gap-3 text-sm tracking-[0.15em] px-10 py-4 border transition-all duration-400 hover:opacity-75"
             style={{
               borderColor: "var(--color-text)",
@@ -144,7 +138,7 @@ export default function ContactSection() {
             }}
           >
             <Mail size={16} strokeWidth={1.5} />
-            <span>hello@sumi-works.jp</span>
+            <span>ryoya112@outlook.com</span>
           </a>
         </motion.div>
 
