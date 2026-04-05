@@ -8,8 +8,8 @@ export const siteConfig = {
   template: "ink-wash",
 
   colors: {
-    primary: "#8DC8E8",
-    accent: "#C4B5E0",
+    primary: "#7EC8E3",
+    accent: "#C4A8E0",
     background: "#ffffff",
   },
 

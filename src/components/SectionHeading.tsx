@@ -19,10 +19,16 @@ export default function SectionHeading({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
     >
-      <p className="font-mono text-primary text-xs tracking-[0.3em] uppercase mb-2">
+      <p
+        className="font-mono text-xs tracking-[0.3em] uppercase mb-2"
+        style={{ color: "var(--color-accent, #7EC8E3)" }}
+      >
         {title}
       </p>
-      <h2 className="font-serif text-white text-2xl sm:text-3xl font-bold tracking-wide">
+      <h2
+        className="font-serif text-2xl sm:text-3xl font-bold tracking-wide"
+        style={{ color: "var(--color-text, #3A3A4A)" }}
+      >
         {subtitle}
       </h2>
       <div className={`mt-4 ${align === "center" ? "mx-auto" : ""} deco-line`} />

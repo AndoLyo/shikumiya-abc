@@ -13,15 +13,15 @@ export default function InkWashPage() {
       className="ink-wash-template"
       style={{
         "--color-bg": "#FFFFFF",
-        "--color-surface": "#F5F8FD",
-        "--color-text": "#4A4A60",
-        "--color-text-muted": "#9DA0B8",
-        "--color-accent": "#8DC8E8",
-        "--color-accent-secondary": "#C4B5E0",
-        "--color-border": "#E6E0F2",
+        "--color-surface": "#F8FAFF",
+        "--color-text": "#3A3A4A",
+        "--color-text-muted": "#8E8EA0",
+        "--color-accent": "#7EC8E3",
+        "--color-accent-secondary": "#C4A8E0",
+        "--color-border": "#E8E0F0",
         backgroundColor: "var(--color-bg)",
         color: "var(--color-text)",
-        fontFamily: "'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif",
+        fontFamily: "'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         minHeight: "100vh",
       } as React.CSSProperties}
     >
