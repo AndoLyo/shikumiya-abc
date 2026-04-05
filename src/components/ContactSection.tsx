@@ -51,17 +51,17 @@ function SealStamp() {
       <circle cx="35" cy="35" r="32" stroke="var(--color-accent)" strokeWidth="2" fill="rgba(141,200,232,0.06)" />
       {/* Inner circle */}
       <circle cx="35" cy="35" r="26" stroke="var(--color-accent)" strokeWidth="0.8" fill="none" opacity="0.5" />
-      {/* Japanese text — 墨 (sumi) */}
+      {/* Logo initial */}
       <text
         x="35"
         y="42"
         textAnchor="middle"
-        fontSize="22"
-        fontFamily="'Hiragino Mincho ProN', 'Yu Mincho', serif"
+        fontSize="20"
+        fontFamily="'Noto Sans JP', sans-serif"
         fill="var(--color-accent)"
         fontWeight="700"
       >
-        墨
+        L
       </text>
     </svg>
   );
@@ -115,9 +115,9 @@ export default function ContactSection() {
             className="text-sm leading-loose max-w-md mx-auto"
             style={{ color: "var(--color-text-muted)" }}
           >
-            作品の購入・展覧会のご依頼・取材など、
+            お仕事のご依頼・コラボレーション・ご質問は
             <br />
-            どうぞお気軽にご連絡ください。
+            お気軽にどうぞ。
           </p>
         </motion.div>
 

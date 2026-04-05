@@ -4,31 +4,10 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "作品", href: "#works" },
-  { label: "紹介", href: "#about" },
-  { label: "連絡", href: "#contact" },
+  { label: "Gallery", href: "#works" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
-
-// Thin ink brush stroke SVG divider
-function InkDivider() {
-  return (
-    <svg
-      className="absolute bottom-0 left-0 w-full pointer-events-none"
-      height="3"
-      viewBox="0 0 1200 3"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M0 1.5 C100 0.5, 200 2.5, 350 1.5 C500 0.5, 600 2.2, 750 1.5 C900 0.8, 1050 2.0, 1200 1.5"
-        stroke="var(--color-border)"
-        strokeWidth="1.5"
-        fill="none"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,21 +34,15 @@ export default function Header() {
         backdropFilter: scrolled ? "blur(8px)" : "none",
       }}
     >
-      <div className="relative mx-auto flex max-w-7xl items-center px-6 sm:px-10 py-5">
-        {/* Vertical site name — left edge decorative element */}
-        <div
-          className="flex items-center gap-4 flex-1"
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-10 py-5">
+        {/* Site name */}
+        <a
+          href="#"
+          className="text-base sm:text-lg font-semibold tracking-[0.12em] transition-opacity hover:opacity-70"
           style={{ color: "var(--color-text)" }}
         >
-          {/* Site name */}
-          <a
-            href="#"
-            className="text-base sm:text-lg font-semibold tracking-[0.12em] transition-opacity hover:opacity-70"
-            style={{ color: "var(--color-text)" }}
-          >
-            Lyo
-          </a>
-        </div>
+          Lyo
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-10">
@@ -89,10 +62,10 @@ export default function Header() {
           ))}
           <a
             href="#contact"
-            className="text-xs tracking-[0.2em] px-5 py-2 border transition-colors duration-300 hover:opacity-80"
+            className="text-xs tracking-[0.2em] px-5 py-2 rounded-full transition-colors duration-300 hover:opacity-80"
             style={{
-              borderColor: "var(--color-accent)",
-              color: "var(--color-accent)",
+              backgroundColor: "var(--color-accent)",
+              color: "#fff",
             }}
           >
             お問い合わせ
@@ -110,8 +83,13 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Ink stroke divider */}
-      <InkDivider />
+      {/* Bottom border line */}
+      {scrolled && (
+        <div
+          className="h-px"
+          style={{ backgroundColor: "var(--color-border)" }}
+        />
+      )}
 
       {/* Mobile menu */}
       {mobileOpen && (
@@ -136,10 +114,10 @@ export default function Header() {
           ))}
           <a
             href="#contact"
-            className="mt-8 self-start text-sm tracking-[0.2em] px-6 py-3 border"
+            className="mt-8 self-start text-sm tracking-[0.2em] px-6 py-3 rounded-full"
             style={{
-              borderColor: "var(--color-accent)",
-              color: "var(--color-accent)",
+              backgroundColor: "var(--color-accent)",
+              color: "#fff",
             }}
             onClick={() => setMobileOpen(false)}
           >

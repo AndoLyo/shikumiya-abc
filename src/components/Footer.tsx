@@ -18,11 +18,11 @@ function FooterSeal() {
         y="25"
         textAnchor="middle"
         fontSize="13"
-        fontFamily="'Hiragino Mincho ProN', 'Yu Mincho', serif"
+        fontFamily="'Noto Sans JP', sans-serif"
         fill="var(--color-accent)"
         fontWeight="700"
       >
-        墨
+        L
       </text>
     </svg>
   );

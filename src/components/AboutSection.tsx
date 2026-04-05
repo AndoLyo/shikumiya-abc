@@ -19,23 +19,23 @@ function InkCircleFrame({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Outer imperfect ink circle */}
+      {/* Outer imperfect circle */}
       <path
         d="M150 20 C200 18, 255 50, 272 100 C290 150, 278 215, 240 248 C202 282, 145 292, 98 272 C50 252, 22 202, 20 155 C18 108, 48 55, 95 30 C118 19, 135 20, 150 20Z"
-        stroke="var(--color-text)"
+        stroke="var(--color-accent-secondary)"
         strokeWidth="3"
         fill="none"
-        opacity="0.7"
+        opacity="0.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       {/* Inner thin circle */}
       <path
         d="M150 35 C195 34, 243 63, 258 108 C273 153, 262 208, 228 238 C194 268, 142 275, 100 255 C57 234, 34 188, 34 150 C34 112, 55 65, 95 44 C116 34, 132 35, 150 35Z"
-        stroke="var(--color-text)"
+        stroke="var(--color-accent)"
         strokeWidth="0.8"
         fill="none"
-        opacity="0.25"
+        opacity="0.3"
       />
       {/* Ink brush gap effect — break in the circle top */}
       <path
@@ -150,7 +150,7 @@ export default function AboutSection() {
                       writingMode: "vertical-rl",
                     }}
                   >
-                    印
+                    L
                   </span>
                 </div>
               </motion.div>
@@ -183,11 +183,22 @@ export default function AboutSection() {
             </h2>
 
             <p
-              className="text-sm leading-loose mb-10"
+              className="text-sm leading-loose mb-5"
               style={{ color: "var(--color-text-muted)" }}
             >
               AI画像生成初めて約3年経ったけど、全然うまくいかない
             </p>
+
+            {/* Quote */}
+            <blockquote
+              className="text-sm leading-loose mb-10 pl-4 border-l-2 italic"
+              style={{
+                color: "var(--color-accent-secondary)",
+                borderColor: "var(--color-accent)",
+              }}
+            >
+              人と人を繋ぐ
+            </blockquote>
 
             {/* Divider brush stroke */}
             <svg
