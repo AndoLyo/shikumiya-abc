@@ -19,7 +19,7 @@ export const siteConfig = {
     motto: "人と人を繋ぐ",
     subtitle: "Art Portfolio",
     description: "AI画像生成初めて約3年経ったけど、全然うまくいかない",
-    backgroundImage: "/images/hero.webp",
+    backgroundImage: "",
     cta: {
       text: "作品を見る",
       href: "#gallery",
