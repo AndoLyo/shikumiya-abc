@@ -48,7 +48,7 @@ function SealStamp() {
       aria-hidden="true"
     >
       {/* Outer circle */}
-      <circle cx="35" cy="35" r="32" stroke="var(--color-accent)" strokeWidth="2" fill="rgba(199,62,58,0.06)" />
+      <circle cx="35" cy="35" r="32" stroke="var(--color-accent)" strokeWidth="2" fill="rgba(141,200,232,0.06)" />
       {/* Inner circle */}
       <circle cx="35" cy="35" r="26" stroke="var(--color-accent)" strokeWidth="0.8" fill="none" opacity="0.5" />
       {/* Japanese text — 墨 (sumi) */}

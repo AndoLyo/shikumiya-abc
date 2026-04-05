@@ -11,7 +11,7 @@ function FooterSeal() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <circle cx="20" cy="20" r="18" stroke="var(--color-accent)" strokeWidth="1.5" fill="rgba(199,62,58,0.07)" />
+      <circle cx="20" cy="20" r="18" stroke="var(--color-accent)" strokeWidth="1.5" fill="rgba(141,200,232,0.07)" />
       <circle cx="20" cy="20" r="14" stroke="var(--color-accent)" strokeWidth="0.6" fill="none" opacity="0.4" />
       <text
         x="20"

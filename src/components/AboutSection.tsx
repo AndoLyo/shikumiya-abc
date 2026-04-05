@@ -140,7 +140,7 @@ export default function AboutSection() {
                   className="w-14 h-14 flex items-center justify-center border-2"
                   style={{
                     borderColor: "var(--color-accent)",
-                    backgroundColor: "rgba(199, 62, 58, 0.08)",
+                    backgroundColor: "rgba(141, 200, 232, 0.08)",
                   }}
                 >
                   <span
