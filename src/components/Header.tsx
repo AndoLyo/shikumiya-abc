@@ -1,142 +1,167 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig } from "@/site.config";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+
+const navItems = [
+  { label: "作品", href: "#works" },
+  { label: "紹介", href: "#about" },
+  { label: "連絡", href: "#contact" },
+];
+
+// Thin ink brush stroke SVG divider
+function InkDivider() {
+  return (
+    <svg
+      className="absolute bottom-0 left-0 w-full pointer-events-none"
+      height="3"
+      viewBox="0 0 1200 3"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 1.5 C100 0.5, 200 2.5, 350 1.5 C500 0.5, 600 2.2, 750 1.5 C900 0.8, 1050 2.0, 1200 1.5"
+        stroke="var(--color-border)"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      const sections = siteConfig.nav.map((l) => l.href.slice(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.getBoundingClientRect().top <= 150) {
-          setActiveSection(sections[i]);
-          return;
-        }
-      }
-      setActiveSection("");
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      e.preventDefault();
-      setIsOpen(false);
-      const el = document.getElementById(href.slice(1));
-      if (el) {
-        const y = el.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    },
-    []
-  );
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#0a0a0f]/90 backdrop-blur-md border-b border-border"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      style={{
+        backgroundColor: scrolled
+          ? "rgba(245, 240, 232, 0.96)"
+          : "rgba(245, 240, 232, 0.0)",
+        backdropFilter: scrolled ? "blur(8px)" : "none",
+      }}
+    >
+      <div className="relative mx-auto flex max-w-7xl items-center px-6 sm:px-10 py-5">
+        {/* Vertical site name — left edge decorative element */}
+        <div
+          className="flex items-center gap-4 flex-1"
+          style={{ color: "var(--color-text)" }}
+        >
+          {/* Vertical Japanese text (decorative) */}
+          <span
+            className="hidden sm:block text-xs tracking-[0.25em] select-none opacity-70"
+            style={{
+              writingMode: "vertical-rl",
+              fontFamily: "inherit",
+              letterSpacing: "0.3em",
+              color: "var(--color-text-muted)",
+              height: "52px",
+            }}
+          >
+            墨絵
+          </span>
+          {/* Site name */}
           <a
             href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="flex items-center gap-3 group"
+            className="text-base sm:text-lg font-semibold tracking-[0.12em] transition-opacity hover:opacity-70"
+            style={{ color: "var(--color-text)" }}
           >
-            <div className="w-1 h-8 bg-primary rounded-full" />
-            <span className="font-serif text-sm font-bold text-white tracking-wide">
-              {siteConfig.name}
-            </span>
+            SUMI
+            <span style={{ color: "var(--color-accent)" }}>・</span>
+            WORKS
           </a>
-
-          {/* Desktop nav */}
-          <div className="flex items-center gap-4">
-            <nav className="hidden md:flex items-center gap-1">
-              {siteConfig.nav.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => scrollTo(e, link.href)}
-                  className={`px-3 py-1.5 font-mono text-[11px] tracking-wider uppercase transition-all ${
-                    activeSection === link.href.slice(1)
-                      ? "text-primary"
-                      : "text-text-secondary hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-
-            {/* Hamburger */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex md:hidden flex-col gap-1.5 w-7 cursor-pointer"
-              aria-label="Toggle menu"
-            >
-              <motion.span
-                className="block h-px bg-white origin-center"
-                animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="block h-px bg-white"
-                animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              />
-              <motion.span
-                className="block h-px bg-white origin-center"
-                animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </button>
-          </div>
         </div>
-      </header>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-10">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="relative text-sm tracking-[0.15em] transition-colors group"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              {item.label}
+              <span
+                className="absolute -bottom-1 left-0 h-px w-0 transition-all duration-400 group-hover:w-full"
+                style={{ backgroundColor: "var(--color-accent)" }}
+              />
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="text-xs tracking-[0.2em] px-5 py-2 border transition-colors duration-300 hover:opacity-80"
+            style={{
+              borderColor: "var(--color-accent)",
+              color: "var(--color-accent)",
+            }}
+          >
+            お問い合わせ
+          </a>
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden transition-opacity hover:opacity-60"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="メニューを開く"
+          style={{ color: "var(--color-text)" }}
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Ink stroke divider */}
+      <InkDivider />
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 z-30 bg-[#0a0a0f]/95 backdrop-blur-xl flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      {mobileOpen && (
+        <nav
+          className="fixed inset-0 top-[72px] z-40 flex flex-col px-8 py-10 md:hidden"
+          style={{ backgroundColor: "var(--color-bg)" }}
+        >
+          {navItems.map((item, i) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="py-5 text-2xl tracking-[0.15em] border-b"
+              style={{
+                borderColor: "var(--color-border)",
+                color: "var(--color-text)",
+                animationDelay: `${i * 80}ms`,
+              }}
+              onClick={() => setMobileOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="mt-8 self-start text-sm tracking-[0.2em] px-6 py-3 border"
+            style={{
+              borderColor: "var(--color-accent)",
+              color: "var(--color-accent)",
+            }}
+            onClick={() => setMobileOpen(false)}
           >
-            <nav className="flex flex-col items-center gap-6">
-              {siteConfig.nav.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => scrollTo(e, link.href)}
-                  className="font-serif text-3xl text-white hover:text-primary transition-colors tracking-wide"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            お問い合わせ
+          </a>
+        </nav>
+      )}
+    </header>
   );
 }
